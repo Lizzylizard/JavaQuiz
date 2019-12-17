@@ -1,0 +1,5 @@
+How many primitive datatypes are there? ä A)4 ä X)8 ä C)2 ä D)10
+Which of the following is NOT a primitive datatype? ä X)String ä B)byte ä C)boolean ä D)int
+Which operator is used to concatinate Strings? ä A). ä B)and ä C)++ ä X)+
+How many bytes are reserved for a double variable? ä X)8 ä B)9 ä C)10 ä D)5
+How do you get the length of an array? ä A)array.length() ä B)length(array) ä X)array.length ä D)array.getLength
