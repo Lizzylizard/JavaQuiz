@@ -19,9 +19,9 @@ public class Quiz {
 	}
 
 	public static void main(String[] args) {
-		Quiz myQuiz = new Quiz();
+		/*Quiz myQuiz = new Quiz();
 		myQuiz.file.readQuestions();
-		myQuiz.showQuestions();
+		myQuiz.showQuestions();*/
 	}
 
 }

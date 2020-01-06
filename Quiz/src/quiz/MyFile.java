@@ -48,7 +48,7 @@ public class MyFile {
 			//the current question
 			String line = questions[i][0];
 			if( line != null) {
-				//splits the current question on the letter 'ä' since this is a letter, that will most likely not be used 
+				//splits the current question on the character 'ä' since this is a character, that will most likely not be used 
 				//in English questions
 				String[] strings = line.split("( ä )");
 				for(int j = 0; j < strings.length; j++) {
@@ -79,7 +79,7 @@ public class MyFile {
 	 * Returns the array with the indices of the questions that have already been asked.
 	 * @return int[] - the asked questions array.
 	 */
-	public int[] getAskesQuestions() {
+	public int[] getAskedQuestions() {
 		return this.askedQuestions;
 	}
 	
