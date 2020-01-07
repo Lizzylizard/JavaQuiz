@@ -13,7 +13,7 @@ Which operator would you use to print all inputs of an array? ä A)if ä X)for ä C
 Which operator would you use to create an endless program? ä A)if ä B)continue ä X)while ä D)switch
 What is the switch operator used for? ä X)to check every case of a variable if there are more than two ä B)to switch a value of a variable to another value ä C)to switch the name of a variable to another name ä D)to switch from one class to another
 What is the correct syntax in order to call a method? ä A)instance-method(); ä X)instance.method(); ä C)method-instance(); ä D)method.instance();
-What are the things in the parantheses called: method(int a, String str); ä A)variables ä B)values ä X)parameters ä D)local variables
+What are the things in the parantheses called: method(int a, String str);? ä A)variables ä B)values ä X)parameters ä D)local variables
 What happens if you call "continue" in a for-loop? ä A)It skips the next line ä X)It jumps directly to the next iteration ä C)It overrides the next "break" ä D)It starts the loop again after "break"
 What happens if you call "break" in a while-loop? ä A)It pauses the while-loop until "continue" is called ä B)It breaks the while-loop into two while-loops ä C)It jumps directly to the next iteration ä X)It leaves the while-loop directly
 Which method do you call if you want to print something on the console? ä A)System.out.WriteMessage("Message") ä B)message.print(); ä C)console.log("Message") ä X)System.out.println("Message");
