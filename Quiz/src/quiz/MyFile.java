@@ -14,7 +14,7 @@ public class MyFile {
 	//the array where the indices of the correct answers are stored
 	int[] correctAnswer = new int[50];
 	//the array where the indices of the questions that have already been asked are stored
-	int[] askedQuestions = new int[50];
+	int[] askedQuestions = new int[20];
 	
 	/**
 	 * Opens the questions.txt file and reads all questions with answers from it.
@@ -36,6 +36,9 @@ public class MyFile {
 				
 		      //after file is read, store the correct answers separately in an array
 		      this.storeCorrectAnswers();
+		      
+		      //and fill the askedQuestions array with only zeros to start with
+		      this.initializeAskedQuestions();
 		      
 		      sc.close();
 		    } catch (FileNotFoundException e) {
@@ -65,7 +68,7 @@ public class MyFile {
 	}
 	
 	/**
-	 * Stores the correct answer to a question in correctAnswer-array.
+	 * Stores the index to the correct answer to a question in correctAnswer-array.
 	 * For example: questions[1][4] holds the correct answer to question 2. Then the value in correctAnswer[1] will be = 4.
 	 */
 	private void storeCorrectAnswers() {
@@ -85,6 +88,15 @@ public class MyFile {
 					}
 				}
 			}
+		}
+	}
+	
+	/**
+	 * Fills the askedQuestions-array with only zeros at the beginning.
+	 */
+	private void initializeAskedQuestions() {
+		for(int i = 0; i < this.askedQuestions.length; i++) {
+			this.askedQuestions[i] = -1;
 		}
 	}
 	
@@ -110,6 +122,28 @@ public class MyFile {
 	 */
 	public int[] getAskedQuestions() {
 		return this.askedQuestions;
+	}
+	
+	/**
+	 * Stores the index of an already asked question in the askedQuestions-array.
+	 * @param index, int - the index of the already asked question from the questions-array.
+	 */
+	public void setAskedQuestions(int index) {
+		for(int i = 0; i < this.askedQuestions.length; i++) {
+			//if the next number in the askedQuestions-array is -1 it means, the index has to be stored here,
+			//because there can not be an index -1 in the questions-array and therefore -1 can not be an index
+			//for a question that has already been asked
+			
+			if(this.askedQuestions[i] == -1) {
+				this.askedQuestions[i] = index;
+				//stop after the first -1 (because otherwise the whole array will be filled only with the first index)
+				break;
+			}
+		}
+		
+		for(int i = 0; i < this.askedQuestions.length; i++) {
+			System.out.println(this.askedQuestions[i]);
+		}
 	}
 	
 	
