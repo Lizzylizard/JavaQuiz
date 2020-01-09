@@ -101,6 +101,40 @@ public class MyFile {
 	}
 	
 	/**
+	 * Replaces the Xs that mark the correct answer by their original answer letter.
+	 */
+	public void prepareAnswers() {
+		for(int i = 0; i < questions.length; i++) {
+			for(int j = 1; j < questions[i].length; j++) {
+				String currAns = this.questions[i][j];
+				if(currAns != null) {
+					if(currAns.charAt(0) == 'X') {
+						int mod = j % 4;
+						String ans = "X";
+						switch(mod) {
+							case 0: 
+								ans = "D";
+								break;
+							case 1: 
+								ans = "A";
+								break;
+							case 2:
+								ans = "B";
+								break;
+							case 3:
+								ans = "C";
+								break;
+							default: System.out.println("Error");						
+						}
+						currAns.replaceFirst("(X)", ans);
+						this.questions[i][j] = currAns;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Returns the questions matrix.
 	 * @return String[][] - the question matrix.
 	 */
@@ -140,10 +174,10 @@ public class MyFile {
 				break;
 			}
 		}
-		
+		/*
 		for(int i = 0; i < this.askedQuestions.length; i++) {
 			System.out.println(this.askedQuestions[i]);
-		}
+		}*/
 	}
 	
 	

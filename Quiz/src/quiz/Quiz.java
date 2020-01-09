@@ -23,49 +23,60 @@ public class Quiz {
 	}
 	
 	/**
-	 * Chooses the next question that the user will be asked randomly and returns it.
-	 * @return String, question.
+	 * Chooses the next question that the user will be asked randomly and returns its index.
+	 * @return int, index of chosen question.
 	 */
-	private String getNextQuestion() {
-		String question = "";
+	private int getNextQuestion() {
+		//will hold the index of the question that is chosen to be the next one
+		int next = -1;
 		int[] alreadyAsked = file.getAskedQuestions();
-		String[][] questions = file.getQuestions();
-		boolean isDouble = false;
+		//a flag, states whether the random chosen question was already asked or not
+		//has to be true in the beginning so the while-loop will at least be entered once
+		boolean isDouble = true;
 		
-		//do as long as the String is still empty
-		while(question.equals("")) {
-			//choose a random index between 0 and 49
-			int next = (int) Math.floor(Math.random() * 49);
-			//check whether this index exists in the questions-array
-			if(questions[next][0] != null) {
-				//if it does exist, check, whether this question has already been asked
-				for(int i = 0; i < alreadyAsked.length; i++) {
-					//if already asked, choose another random number
-					if(next == alreadyAsked[i]) {
-						System.out.println(next + " = doppelt");
-						isDouble = true;
-						break;
-					} 
+		//as long as the chosen question has already been asked, there must be chosen another one -> loop has to do
+		//another iteration
+		while(isDouble) {
+			//we do not know yet, whether the question has already been asked, so set to false
+			isDouble = false;
+			
+			//choose a random number between 0 and 49, because we have 50 questions
+			next = (int) Math.floor(Math.random() * 50);
+			
+			//check in the alreadyAsked-array, whether the question has already been asked or not
+			for(int i = 0; i < alreadyAsked.length; i++) {
+				if(alreadyAsked[i] == next) {
+					//set flag to true, we need to choose another question -> next while-iteration
+					isDouble = true;
+					//System.out.println("Double!");
 				}
-				
-				//if not, get the question and store the index in the askedQuestions-array
-				if(!isDouble) {
-					question = questions[next][0];
-					file.setAskedQuestions(next);
-				}
-				isDouble = false;
 			}
+			
+			//if question has NOT already been asked, we can choose the question with the randomly generated index
+			if(!isDouble) {
+				//put it NOW in the alreadyAsked-array, so it won't be asked twice
+				file.setAskedQuestions(next);
+				//set the flag to false, no need to look for another question -> no further while-iterations needed
+				isDouble = false;
+			} 
 		}
 			
-		//return the chosen question
-		return question;
+		//return the index of the chosen question
+		return next;
 	}
 	
 	/**
 	 * Prints the next question on the console.
 	 */
 	public void showNextQuestion() {
-		System.out.println(getNextQuestion() + "\n");
+		int next = getNextQuestion();
+		file.prepareAnswers();
+		String[][] questions = file.getQuestions();
+		System.out.println(questions[next][0]);
+		System.out.println("\t" + questions[next][1]);
+		System.out.println("\t" + questions[next][2]);
+		System.out.println("\t" + questions[next][3]); 
+		System.out.println("\t" + questions[next][4] + "\n");
 	}
 
 	public static void main(String[] args) {

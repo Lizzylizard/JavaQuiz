@@ -1,0 +1,175 @@
+1.To distribute your appication to different platforms, how many Java versions do you need to create?
+ä x)Just one version
+ä b)One for each platform
+ä c)Two versions
+ä d)More than one for each platofrm
+
+2.Which one of the following statements is true?
+ä a)Java is used only in NASA`s space related applications
+ä b)Java is used only in web and mobile applications
+ä x)Java has a huge developer community
+ä d)Java is an abandonated programming language
+
+3.Which method is the starting point for all Java programs?
+ä a)start
+ä x)main
+ä c)class
+ä d)println
+
+4.Which method prints text in a Java program?
+ä a)System.out()
+ä b)System.printText()
+ä x)System.out.println()
+ä d)out.writeText()
+
+5.How are created single-line comments?
+ä a)** characters at the beginning of the line
+ä b)*/ characters at the beginning of the line
+ä x)// characters at the beginning of the line
+ä d)// characters at the end of the line
+
+6.How can you add a Java doc style comment?
+ä a)// and */ characters to wrap a comment
+ä x)/** and */ characters to wrap a comment
+ä c)// characters in the beginning of the line
+ä d)/* and */ characters to wrap a comment
+
+7.Which variable type would you use for a city name?
+ä a)int
+ä x)string
+ä c)double
+ä d)boolean
+
+8.Which statement in regard to the char data type is true?
+ä a)char is used to store numeric values
+ä x)"K" is a char
+ä c)"hello" is a char
+ä d)char determines if a statement is true or false
+
+9.What every java program must contain?
+ä a)only integers
+ä b)at least two variables
+ä x)a method called "main"
+ä d)comments in every class
+
+10.An if statement can contain how many else if statements?
+ä a)none
+ä b)only two
+ä c)only more than the used classes
+ä x)as many as you want
+
+11.How is a do while loop different from a while loop?
+ä x)a do while loop runs your code at least once
+ä b)a do while loop tests the condition before running the code
+ä c)a while loop runs the code before testing the condition
+ä d)there is no difference between while and do while loops
+
+12.Which is the correct statement about && and || operators?
+ä x)a || b is true if either a or b is true
+ä b)a || b is false if both of them are true
+ä c)a && b is false if both a and b are true
+ä d)a && b is true if either a or b is true
+
+13.From which number an array starts counting, in Java?
+ä x)0
+ä b)1
+ä c)2
+ä d)4
+
+14.From the code "String arr [][]={{1,2,3},{4,5,6}}; System.out.println(arr[1][1]); which is the returned value?
+ä a)1
+ä b)3
+ä x)5
+ä d)0
+
+15.What defines a class?
+ä x)attributes and behavior
+ä b)values and numbers
+ä c)apples and trees
+ä d)cars and engines
+
+16.How many times you can call a method?
+ä x)as many times as you want
+ä b)once
+ä c)twice
+ä d)thrice
+
+17.Which of the following are valid access modifiers?
+ä a)hidden
+ä b)available
+ä c)select
+ä x)protected
+
+18.What would the name of the setter method for the class variable named "age" be?
+ä a)getAge
+ä b)age
+ä c)initAge
+ä x)setAge
+
+19.Is it necessary for the constructor to have the same name as the class?
+ä x)yes
+ä b)no
+ä c)yes, only if there are more than three classes declared
+ä d)no, unless the class is private
+
+20.What is the value of the "Math.abs(Math.min(-6, 3));" expression?
+ä a)-6
+ä b)3
+ä x)6
+ä d)-3
+
+21.What keyword makesn a variable a constant?
+ä x)final
+ä b)static
+ä c)void
+ä d)constant
+
+22.How many packages can be contained in a Java program?
+ä x)as many as you need
+ä b)one
+ä c)up to ten
+ä d)none
+
+23.Which access modifier explicitly says that a method or variable of an object can be accessed by code from outside of the class of that object?
+ä a)static
+ä x)public
+ä c)default
+ä d)private
+
+24.Which is the word used to inherit the subclass from superclass?
+ä a)separate
+ä b)divide
+ä x)extends
+ä d)split
+
+25.Are private methods inherited from the super class?
+ä a)yes
+ä x)no
+ä c)yes, if the program contains more than 2 classes
+ä d)no, unless the methods aren`t called
+
+26.How many primitive datatypes are there? ä A)4 ä X)8 ä C)2 ä D)10
+27.Which of the following is NOT a primitive datatype? ä X)String ä B)byte ä C)boolean ä D)int
+28.Which operator is used to concatinate Strings? ä A). ä B)and ä C)++ ä X)+
+29.How many bytes are reserved for a double variable? ä X)8 ä B)9 ä C)10 ä D)5
+30.How do you get the length of an array? ä A)array.length() ä B)length(array) ä X)array.length ä D)array.getLength
+31.What do you compute with the modulo (%) operator? ä X)The remainder after division ä B)The percentage of a number ä C)Nothing, you can not use it in Java as an operator ä D)A and B
+32.What is the output of this code-segment: int a = 0; int b = 2; String str = (a >= b) ? "a bigger than or equal to b" : "a smaller than b"; System.out.println(str);? ä X)a smaller than b ä B)a bigger than or equal to b ä C)All of the above ä D)Nothing, it's incorrect
+33.What do you call if you want to create an instance of a class? ä A)The destructor ä B)There are no classes in Java ä X)the constructor ä D)the instructor
+34.Which parameters does the main method hold? ä A)int argc, const char* argv[] ä B)none ä C)int argc, String[] args ä X)String[] args
+35.Which would you consider a correct class name? ä A)correctclassname ä B)Correctclassname ä X)CorrectClassName ä D)correctClassName
+36.Which operator would you use in order to decide whether a number is bigger than another? ä X)if ä B)for ä C)while ä D)switch
+37.Which operator would you use to print all inputs of an array? ä A)if ä X)for ä C)break ä D)switch
+38.Which operator would you use to create an endless program? ä A)if ä B)continue ä X)while ä D)switch
+39.What is the switch operator used for? ä X)to check every case of a variable if there are more than two ä B)to switch a value of a variable to another value ä C)to switch the name of a variable to another name ä D)to switch from one class to another
+40.What is the correct syntax in order to call a method? ä A)instance-method(); ä X)instance.method(); ä C)method-instance(); ä D)method.instance();
+41.What are the things in the parantheses called: method(int a, String str); ä A)variables ä B)values ä X)parameters ä D)local variables
+42.What happens if you call "continue" in a for-loop? ä A)It skips the next line ä X)It jumps directly to the next iteration ä C)It overrides the next "break" ä D)It starts the loop again after "break"
+43.What happens if you call "break" in a while-loop? ä A)It pauses the while-loop until "continue" is called ä B)It breaks the while-loop into two while-loops ä C)It jumps directly to the next iteration ä X)It leaves the while-loop directly
+44.Which method do you call if you want to print something on the console? ä A)System.out.WriteMessage("Message") ä B)message.print(); ä C)console.log("Message") ä X)System.out.println("Message");
+45.Which statement do you use if you want to get the next line of a user input from the console and your scanner is called sc? ä X)sc.nextLine(); ä B)nextLine(sc); ä C)sc.getLine(); ä D)sc.next();
+46.Which library has to be imported if you want to work with graphics? ä A)java.graphics.* ä X)javax.swing.* or java.awt.* ä C)only javax.swing.* ä D)only java.awt.*
+47.Which graphical element do you use with swing to show a message where the user can only click "OK"? ä A)showInputDialog ä B)showConfirmDialog ä X)showMessageDialog ä D)createDialog
+48.What do you call a graphical field where the user can click on that triggers an action? ä A)actionField ä X)button ä C)clickField ä D)buttonField
+49.What are the dimensions of this field: frame.setSize(400, 300);? ä A)height = 400 millimeters width = 300 millimeters ä B)width = 400 millimeters height = 300 millimeters ä C)height = 400 pixel width = 300 pixel ä X)width = 400 pixel height = 300 pixel
+50.What is the correct value of "str" in the end: String str = "Hello"; String world = " world"; str += world; world = " again!"; str += world; ä X)"Hello world again!" ä B)"Hello worldHello world again!" ä C)" again!" ä D)"Hello"
