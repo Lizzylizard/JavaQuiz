@@ -108,26 +108,28 @@ public class MyFile {
 			for(int j = 1; j < questions[i].length; j++) {
 				String currAns = this.questions[i][j];
 				if(currAns != null) {
+					String ans = "X";
 					if(currAns.charAt(0) == 'X') {
 						int mod = j % 4;
-						String ans = "X";
 						switch(mod) {
 							case 0: 
-								ans = "D";
+								ans = "D)";
 								break;
 							case 1: 
-								ans = "A";
+								ans = "A)";
 								break;
 							case 2:
-								ans = "B";
+								ans = "B)";
 								break;
 							case 3:
-								ans = "C";
+								ans = "C)";
 								break;
 							default: System.out.println("Error");						
 						}
-						currAns.replaceFirst("(X)", ans);
-						this.questions[i][j] = currAns;
+						String[] answers = currAns.split("([)])");
+						answers[0] = ans;
+						this.questions[i][j] = answers[0] + answers[1];
+						//System.out.println(this.questions[i][j]);
 					}
 				}
 			}
