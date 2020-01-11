@@ -2,7 +2,7 @@ How many primitive datatypes are there? ä A)4 ä X)8 ä C)2 ä D)10
 Which of the following is NOT a primitive datatype? ä X)String ä B)byte ä C)boolean ä D)int
 Which operator is used to concatinate Strings? ä A). ä B)and ä C)++ ä X)+
 How many bytes are reserved for a double variable? ä X)8 ä B)9 ä C)10 ä D)5
-How do you get the length of an array? ä A)array.length() ä B)length(array) ä X)array.length ä D)array.getLength
+How do you get the length of an array? ä A)array.length(); ä B)length(array); ä X)array.length; ä D)array.getLength;
 What do you compute with the modulo (%) operator? ä X)The remainder after division ä B)The percentage of a number ä C)Nothing, you can not use it in Java as an operator ä D)A and B
 What is the output of this code-segment: int a = 0; int b = 2; String str = (a >= b) ? "a bigger than or equal to b" : "a smaller than b"; System.out.println(str);? ä X)a smaller than b ä B)a bigger than or equal to b ä C)All of the above ä D)Nothing, it's incorrect
 What do you call if you want to create an instance of a class? ä A)The destructor ä B)There are no classes in Java ä X)the constructor ä D)the instructor
@@ -16,19 +16,19 @@ What is the correct syntax in order to call a method? ä A)instance-method(); ä X
 What are the things in the parantheses called: method(int a, String str);? ä A)variables ä B)values ä X)parameters ä D)local variables
 What happens if you call "continue" in a for-loop? ä A)It skips the next line ä X)It jumps directly to the next iteration ä C)It overrides the next "break" ä D)It starts the loop again after "break"
 What happens if you call "break" in a while-loop? ä A)It pauses the while-loop until "continue" is called ä B)It breaks the while-loop into two while-loops ä C)It jumps directly to the next iteration ä X)It leaves the while-loop directly
-Which method do you call if you want to print something on the console? ä A)System.out.WriteMessage("Message") ä B)message.print(); ä C)console.log("Message") ä X)System.out.println("Message");
+Which method do you call if you want to print something on the console? ä A)System.out.WriteMessage("Message"); ä B)message.print(); ä C)console.log("Message") ä X)System.out.println("Message");
 Which statement do you use if you want to get the next line of a user input from the console and your scanner is called sc? ä X)sc.nextLine(); ä B)nextLine(sc); ä C)sc.getLine(); ä D)sc.next();
 Which library has to be imported if you want to work with graphics? ä A)java.graphics.* ä X)javax.swing.* or java.awt.* ä C)only javax.swing.* ä D)only java.awt.*
 Which graphical element do you use with swing to show a message where the user can only click "OK"? ä A)showInputDialog ä B)showConfirmDialog ä X)showMessageDialog ä D)createDialog
 What do you call a graphical field where the user can click on that triggers an action? ä A)actionField ä X)button ä C)clickField ä D)buttonField
 What are the dimensions of this field: frame.setSize(400, 300);? ä A)height = 400 millimeters width = 300 millimeters ä B)width = 400 millimeters height = 300 millimeters ä C)height = 400 pixel width = 300 pixel ä X)width = 400 pixel height = 300 pixel
 What is the correct value of "str" in the end: String str = "Hello"; String world = " world"; str += world; world = " again!"; str += world; ä X)"Hello world again!" ä B)"Hello worldHello world again!" ä C)" again!" ä D)"Hello"
-To distribute your appication to different platforms, how many Java versions do you need to create? ä X)Just one version ä B)One for each platform ä C)Two versions ä D)More than one for each platofrm
+To distribute your application to different platforms, how many Java versions do you need to create? ä X)Just one version ä B)One for each platform ä C)Two versions ä D)More than one for each platofrm
 Which one of the following statements is true? ä A)Java is used only in NASA`s space related applications ä B)Java is used only in web and mobile applications ä X)Java has a huge developer community ä D)Java is an abandonated programming language
 Which method is the starting point for all Java programs? ä A)start ä X)main ä C)class ä D)println
-Which method prints text in a Java program? ä A)System.out() ä B)System.printText() ä X)System.out.println() ä D)out.writeText()
+Which method prints text in a Java program? ä A)System.out(); ä B)System.printText(); ä X)System.out.println(); ä D)out.writeText();
 How are created single-line comments? ä A)** characters at the beginning of the line ä B)*/ characters at the beginning of the line ä X)// characters at the beginning of the line ä D)// characters at the end of the line
-How can you add a Java doc style comment?ä  A)// and */ characters to wrap a comment ä X)/** and */ characters to wrap a comment ä C)// characters in the beginning of the line ä D)/* and */ characters to wrap a comment
+How can you add a Java doc style comment? ä  A)// and */ characters to wrap a comment ä X)/** and */ characters to wrap a comment ä C)// characters in the beginning of the line ä D)/* and */ characters to wrap a comment
 Which variable type would you use for a city name? ä A)int ä X)string ä C)double ä D)boolean
 Which statement in regard to the char data type is true? ä A)char is used to store numeric values ä X)"K" is a char ä C)"hello" is a char ä D)char determines if a statement is true or false
 What every java program must contain? ä A)only integers ä B)at least two variables ä X)a method called "main" ä D)comments in every class
@@ -43,7 +43,7 @@ Which of the following are valid access modifiers? ä A)hidden ä B)available ä C)
 What would the name of the setter method for the class variable named "age" be? ä A)getAge ä B)age ä C)initAge ä X)setAge
 Is it necessary for the constructor to have the same name as the class? ä X)yes ä B)no ä C)yes, only if there are more than three classes declared ä D)no, unless the class is private
 What is the value of the "Math.abs(Math.min(-6, 3));" expression? ä A)-6 ä B)3 ä X)6 ä D)-3
-What keyword makesn a variable a constant? ä X)final ä B)static ä C)void ä D)constant
+What keyword makes a variable a constant? ä X)final ä B)static ä C)void ä D)constant
 How many packages can be contained in a Java program? ä X)as many as you need ä B)one ä C)up to ten ä D)none
 Which access modifier explicitly says that a method or variable of an object can be accessed by code from outside of the class of that object? ä A)static ä X)public ä C)default ä D)private
 Which is the word used to inherit the subclass from superclass? ä A)separate ä B)divide ä X)extends ä D)split

@@ -102,33 +102,54 @@ public class MyFile {
 	
 	/**
 	 * Replaces the Xs that mark the correct answer by their original answer letter.
+	 * IMPORTANT: this HAS TO BE called AFTER storing the answers and correct answers, otherwise the 'X' marking the
+	 * correct answer will have disappeared!
 	 */
 	public void prepareAnswers() {
+		//go through all the questions
 		for(int i = 0; i < questions.length; i++) {
+			//skip the actual questions, just interested in the answers, so start at index 1
 			for(int j = 1; j < questions[i].length; j++) {
+				//get the current answer
 				String currAns = this.questions[i][j];
 				if(currAns != null) {
 					String ans = "X";
+					//if current answer start with 'X', replace it by the character that would normally be in its place.
 					if(currAns.charAt(0) == 'X') {
+						//if index of answer can be divided by 4 without a remainder, it should be answer 4 -> D
+						//1 -> A
+						//2 -> B
+						//3 -> C
 						int mod = j % 4;
 						switch(mod) {
 							case 0: 
-								ans = "D)";
+								ans = "D";
 								break;
 							case 1: 
-								ans = "A)";
+								ans = "A";
 								break;
 							case 2:
-								ans = "B)";
+								ans = "B";
 								break;
 							case 3:
-								ans = "C)";
+								ans = "C";
 								break;
 							default: System.out.println("Error");						
 						}
+						//split answer on ')'
 						String[] answers = currAns.split("([)])");
+						//replace the character before ')' by the actual character
 						answers[0] = ans;
-						this.questions[i][j] = answers[0] + answers[1];
+						//replace it in the questions matrix, so it will be displayed on screen without the 'X'
+						String complete = "";
+						for(int h = 0; h < answers.length; h++) {
+							if(h > 0) {
+								complete += ")" + answers[h];
+							} else {
+								complete += answers[h];								
+							}
+						}
+						this.questions[i][j] = complete;
 						//System.out.println(this.questions[i][j]);
 					}
 				}
@@ -176,10 +197,6 @@ public class MyFile {
 				break;
 			}
 		}
-		/*
-		for(int i = 0; i < this.askedQuestions.length; i++) {
-			System.out.println(this.askedQuestions[i]);
-		}*/
 	}
 	
 	

@@ -1,7 +1,10 @@
 package quiz;
 
+import java.util.Scanner;
+
 public class Quiz {
 	MyFile file = new MyFile();
+	private int score = 0;
 	
 	/**
 	 * Shows all questions stored in the questions matrix and their correct answers.
@@ -66,27 +69,132 @@ public class Quiz {
 	}
 	
 	/**
-	 * Prints the next question on the console.
+	 * Compares the user's answer to the correct answer.
+	 * @param myQuiz, an instance of this class that the main method is working with.
+	 * @param next, the currently displayed question
+	 * @param sc, the currently used scanner
+	 * @return boolean, true if user was correct, false if user was wrong
 	 */
-	public void showNextQuestion() {
+	private boolean compareAnswer(Quiz myQuiz, int next, Scanner sc) {
+		//return value
+		boolean correct = false;
+		//get the user's answer
+		String ans = sc.nextLine();
+		int indexOfAnswer = 0;
+		
+		//if user typed 'A' or 'a' -> index is 1
+		//'B' or 'b' -> index 2
+		//'C' or 'c' -> index 3
+		//'D' or 'd' -> index 4
+		switch(ans) {
+			case "A": 
+				indexOfAnswer = 1;
+				break;
+			case "a": 
+				indexOfAnswer = 1;
+				break;
+			case "B": 
+				indexOfAnswer = 2;
+				break;
+			case "b": 
+				indexOfAnswer = 2;
+				break;
+			case "C": 
+				indexOfAnswer = 3;
+				break;
+			case "c": 
+				indexOfAnswer = 3;
+				break;
+			case "D": 
+				indexOfAnswer = 4;
+				break;
+			case "d": 
+				indexOfAnswer = 4;
+				break;
+		}
+		
+		//get the questions
+		String[][] questions = myQuiz.file.getQuestions();
+		//get the correct answers
+		int[] corrAns = myQuiz.file.getAnswers();
+		
+		//compare user's answer to correct answer to the currently displayed question
+		if(indexOfAnswer == corrAns[next]) {
+			System.out.println("Correct! Your answer was: " + questions[next][indexOfAnswer] + "\n");
+			correct = true;
+		}else {
+			System.out.println("Wrong! Correct answer was: " + questions[next][corrAns[next]] + "\n");
+			correct = false;
+		}
+		
+		//return whether user was correct or not
+		return correct;
+	}
+	
+	/**
+	 * Prints the next question on the console.
+	 * @param index, number questions that user has done
+	 * @return next, int-index of the currently displayed question
+	 */
+	public int showNextQuestion(int index) {
 		int next = getNextQuestion();
 		file.prepareAnswers();
 		String[][] questions = file.getQuestions();
-		System.out.println(questions[next][0]);
+		System.out.println((index + 1) + ")" + questions[next][0]);
 		System.out.println("\t" + questions[next][1]);
 		System.out.println("\t" + questions[next][2]);
 		System.out.println("\t" + questions[next][3]); 
 		System.out.println("\t" + questions[next][4] + "\n");
+		return next;
+	}
+	
+	/**
+	 * Holds the main logic of the quiz. Just so the main-method stays organized.
+	 * @param myQuiz, an instance of this class that the main method is working with.
+	 */
+	public void mainProcedure(Quiz myQuiz) {
+		//Scanner to read the answers from the user
+		Scanner sc = new Scanner(System.in);
+		//user has to answer 20 questions
+		for(int i = 0; i < 20; i++) {
+			//show first question
+			int next = myQuiz.showNextQuestion(i);
+			//get the user's answer and compare it to the correct one
+			boolean isCorrect = myQuiz.compareAnswer(myQuiz, next, sc);	
+			//if user was correct, update his score
+			if(isCorrect) {
+				this.score++;
+			}
+		}
+		
+		if (this.score < 5) {
+			System.out.println("Oh no :( Your score is only " + this.score + ".");
+			System.out.println("You should practice your Java skills!");
+		} else if (this.score >= 5 && this.score <= 10) {
+			System.out.println("You are doing ok. Your score is " + this.score + ".");
+			System.out.println("But try to practice a bit more.");			
+		} else if (this.score > 10 && this.score < 15) {
+			System.out.println("Good :) Your score is " + this.score + ".");		
+		} else if (this.score >= 15 && this.score < 20) {
+			System.out.println("Very good :) Your score is " + this.score + ".");		
+		} else {
+			System.out.println("Congratulations! You're an expert of Java.");
+			System.out.println("Your score is " + this.score);
+		}
+		
+		//Close the scanner at the end
+		sc.close();
 	}
 
 	public static void main(String[] args) {
 		Quiz myQuiz = new Quiz();
-		myQuiz.file.readQuestions();
-		//myQuiz.showQuestions();
-		for(int i = 0; i < 20; i++) {
-			System.out.print((i + 1) + ")");
-			myQuiz.showNextQuestion();
-		}
+		myQuiz.file.readQuestions();		
+
+		//greet the user
+		//explain what the user has to do
+		
+		//main procedure
+		myQuiz.mainProcedure(myQuiz);
 	}
 
 }
