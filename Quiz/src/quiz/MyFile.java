@@ -18,6 +18,9 @@ public class MyFile {
 	
 	/**
 	 * Opens the questions.txt file and reads all questions with answers from it.
+	 * Stores them in a matrix.
+	 * Stores the indexes of the correct answers separately in an array.
+	 * Prepares the answers for displaying them on the screen.
 	 */
 	public void readQuestions() {
 		try {
@@ -39,6 +42,9 @@ public class MyFile {
 		      
 		      //and fill the askedQuestions array with only zeros to start with
 		      this.initializeAskedQuestions();
+		      
+		      //prepares the answers for displaying them on the screen
+		      this.prepareAnswers();
 		      
 		      sc.close();
 		    } catch (FileNotFoundException e) {
@@ -92,7 +98,7 @@ public class MyFile {
 	}
 	
 	/**
-	 * Fills the askedQuestions-array with only zeros at the beginning.
+	 * Fills the askedQuestions-array with only -1s at the beginning.
 	 */
 	private void initializeAskedQuestions() {
 		for(int i = 0; i < this.askedQuestions.length; i++) {

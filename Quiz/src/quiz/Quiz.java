@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Quiz {
 	MyFile file = new MyFile();
 	private int score = 0;
+	final private String pw = "6";
+	//final private String pw = "62210597";
 	
 	/**
 	 * Shows all questions stored in the questions matrix and their correct answers.
@@ -27,9 +29,10 @@ public class Quiz {
 	
 	/**
 	 * Chooses the next question that the user will be asked randomly and returns its index.
+	 * Also puts the newly chosen question into the 'already-asked' array, so it won't be displayed twice.
 	 * @return int, index of chosen question.
 	 */
-	private int getNextQuestion() {
+	public int getNextQuestion() {
 		//will hold the index of the question that is chosen to be the next one
 		int next = -1;
 		int[] alreadyAsked = file.getAskedQuestions();
@@ -69,7 +72,7 @@ public class Quiz {
 	}
 	
 	/**
-	 * Compares the user's answer to the correct answer.
+	 * Compares the user's answer to the correct answer. Only used for console application.
 	 * @param myQuiz, an instance of this class that the main method is working with.
 	 * @param next, the currently displayed question
 	 * @param sc, the currently used scanner
@@ -132,13 +135,64 @@ public class Quiz {
 	}
 	
 	/**
-	 * Prints the next question on the console.
+	 * Compares the user's answer to the correct answer. Only used for graphical application.
+	 * @param myQuiz, Quiz - an instance of this class that the main method is working with.
+	 * @param next, int - the index of the currently displayed question
+	 * @param ans, int - the index of the answer the user gave
+	 * @return boolean, true if user was correct, false if user was wrong
+	 */
+	public boolean compareAnswer(Quiz myQuiz, int next, int ans) {
+		//return value
+		boolean correct = false;
+		
+		//get the correct answers
+		int[] corrAns = myQuiz.file.getAnswers();
+		
+		//compare user's answer to correct answer
+		if(ans == corrAns[next]) {
+			System.out.println("Correct");
+			correct = true;
+		}else {
+			System.out.println("Wrong");
+			correct = false;
+		}
+		
+		//return whether user was correct or not
+		return correct;
+	}
+	
+	/**
+	 * Compares the typed password to the correct password. Only used in console application.
+	 * @param sc, Scanner - to get the typed password
+	 * @return boolean, true if password correct, false if password incorrect.
+	 */
+	private boolean password(Scanner sc) {
+		boolean correct = false;
+		System.out.println("Please enter password: ");
+		
+		//get typed password 
+		String input = sc.nextLine();
+		
+		//compare it
+		if(input.equals(pw)) {
+			//System.out.println("Password correct, enter program.");
+			correct = true;
+		} else {
+			//System.out.println("Password incorrect, try again.");
+			correct = false;
+		}
+		
+		//return whether it was correct or not
+		return correct;
+	}
+	
+	/**
+	 * Prints the next question on the console. Only used in console-application.
 	 * @param index, number questions that user has done
 	 * @return next, int-index of the currently displayed question
 	 */
 	public int showNextQuestion(int index) {
 		int next = getNextQuestion();
-		file.prepareAnswers();
 		String[][] questions = file.getQuestions();
 		System.out.println((index + 1) + ")" + questions[next][0]);
 		System.out.println("\t" + questions[next][1]);
@@ -149,12 +203,10 @@ public class Quiz {
 	}
 	
 	/**
-	 * Holds the main logic of the quiz. Just so the main-method stays organized.
+	 * Holds the main logic of the quiz. Just so the main-method stays organized. Only used in console-application.
 	 * @param myQuiz, an instance of this class that the main method is working with.
 	 */
-	public void mainProcedure(Quiz myQuiz) {
-		//Scanner to read the answers from the user
-		Scanner sc = new Scanner(System.in);
+	public void mainProcedure(Quiz myQuiz, Scanner sc) {
 		//user has to answer 20 questions
 		for(int i = 0; i < 20; i++) {
 			//show first question
@@ -167,6 +219,7 @@ public class Quiz {
 			}
 		}
 		
+		//grade the user based on his score 
 		if (this.score < 5) {
 			System.out.println("Oh no :( Your score is only " + this.score + ".");
 			System.out.println("You should practice your Java skills!");
@@ -181,20 +234,36 @@ public class Quiz {
 			System.out.println("Congratulations! You're an expert of Java.");
 			System.out.println("Your score is " + this.score);
 		}
-		
-		//Close the scanner at the end
-		sc.close();
 	}
 
 	public static void main(String[] args) {
 		Quiz myQuiz = new Quiz();
-		myQuiz.file.readQuestions();		
-
-		//greet the user
-		//explain what the user has to do
+		myQuiz.file.readQuestions();
 		
-		//main procedure
-		myQuiz.mainProcedure(myQuiz);
-	}
+		//----------------------- CONSOLE APPLICATION ----------------------------------//
+		
+		//
 
+		Scanner sc = new Scanner(System.in);
+		if(myQuiz.password(sc)) {				
+			//main procedure
+			myQuiz.mainProcedure(myQuiz, sc);
+		} else {
+			System.out.println("Password incorrect, please try again.");
+		}
+		sc.close();
+		
+		//
+
+		 
+		//----------------------- USER INTERFACE APPLICATION ---------------------------//		
+		
+		/*
+
+		//graphics
+		UserInterface ui = new UserInterface();
+		ui.init();
+		
+		*/
+	}
 }
