@@ -242,7 +242,7 @@ public class Quiz {
 		
 		//----------------------- CONSOLE APPLICATION ----------------------------------//
 		
-		//
+		/*
 
 		Scanner sc = new Scanner(System.in);
 		if(myQuiz.password(sc)) {				
@@ -253,17 +253,17 @@ public class Quiz {
 		}
 		sc.close();
 		
-		//
+		*/
 
 		 
 		//----------------------- USER INTERFACE APPLICATION ---------------------------//		
 		
-		/*
+		//
 
 		//graphics
 		UserInterface ui = new UserInterface();
 		ui.init();
 		
-		*/
+		//
 	}
 }

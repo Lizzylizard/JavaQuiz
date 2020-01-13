@@ -23,6 +23,7 @@ public class QuestionFrame extends JFrame implements ActionListener {
 	
 	static String[][] questions;
 	static int next;
+	static int score = 0;
 	
 	JLabel qLabel, aLabel, bLabel, cLabel, dLabel;
 	JButton btnA, btnB, btnC, btnD;	
@@ -48,18 +49,23 @@ public class QuestionFrame extends JFrame implements ActionListener {
     	
 		String question = this.questions[this.next][0];
 		
-		String ansA = this.questions[this.next][1];	
+		String ansA = this.questions[this.next][1];			
 		String ansB = this.questions[this.next][2];
 		String ansC = this.questions[this.next][3];
 		String ansD = this.questions[this.next][4];		
 		
+		setUp(question, ansA, ansB, ansC, ansD);
+		
+	}
+	
+	public void setUp(String question, String ansA, String ansB, String ansC, String ansD) {
 		quesFrame = new JFrame();
 		quesFrame.setSize(1500, 900);
 		
 		masterPanel = quesFrame.getContentPane();
 				
 		head = new Font("Arial", Font.PLAIN, 20);
-		text = new Font("Arial", Font.PLAIN, 15);
+		text = new Font("Arial", Font.PLAIN, 10);
 		quesPanel = new JPanel();
 		quesPanel.setLayout(new FlowLayout());
 		qLabel = new JLabel(question);
@@ -75,7 +81,7 @@ public class QuestionFrame extends JFrame implements ActionListener {
 		btnPanel.add(placeholder11);
 		JLabel placeholder12 = new JLabel();
 		btnPanel.add(placeholder12);
-		JLabel placeholder13 = new JLabel();
+		JLabel placeholder13 = new JLabel("Score: " + score);
 		btnPanel.add(placeholder13);
 		
 		JLabel placeholder1 = new JLabel();
@@ -126,84 +132,38 @@ public class QuestionFrame extends JFrame implements ActionListener {
 	
 	public void actionPerformed (ActionEvent ae){
 		int usersAnswer;
-		int[] correctAnswers = file.getAnswers();
-		int correctAnswer = correctAnswers[next];
+		int[] correctAnswers = myQuiz.file.getAnswers();
+		int correctAnswer = correctAnswers[this.next];
 		boolean correct = false;
         if(ae.getSource() == this.btnA){ 
-        	correct = myQuiz.compareAnswer(myQuiz, next, 1);
+        	correct = myQuiz.compareAnswer(myQuiz, this.next, 1);
         	usersAnswer = 1;
         } else if(ae.getSource() == this.btnB) {
-        	correct = myQuiz.compareAnswer(myQuiz, next, 2); 
+        	correct = myQuiz.compareAnswer(myQuiz, this.next, 2); 
         	usersAnswer = 2;       	
         } else if(ae.getSource() == this.btnC) {
-        	correct = myQuiz.compareAnswer(myQuiz, next, 3);
+        	correct = myQuiz.compareAnswer(myQuiz, this.next, 3);
         	usersAnswer = 3;        	
         } else {
-        	correct = myQuiz.compareAnswer(myQuiz, next, 4); 
+        	correct = myQuiz.compareAnswer(myQuiz, this.next, 4); 
         	usersAnswer = 4;       	
         }
         
         if(correct) {
-        	//JOptionPane.showMessageDialog(quesFrame, "Correct");
-        	switch(usersAnswer) {
-	        	case 1: 
-	            	btnA.setBackground(Color.GREEN);
-	            	break;
-	        	case 2: 
-	            	btnB.setBackground(Color.GREEN);
-	            	break;	        	
-	            case 3: 
-		            btnC.setBackground(Color.GREEN);
-		            break;	        	
-		        case 4: 
-		            btnD.setBackground(Color.GREEN);
-		            break;
-        	}
+        	JOptionPane.showMessageDialog(quesFrame, "Correct\nYour answer was: " + questions[this.next][usersAnswer]);
+        	this.score++;
         } else {
-        	//JOptionPane.showMessageDialog(quesFrame, "Incorrect");
-        	switch(usersAnswer) {
-	        	case 1: 
-	            	btnA.setBackground(Color.RED);
-	            	break;
-	        	case 2: 
-	            	btnB.setBackground(Color.RED);
-	            	break;	        	
-	            case 3: 
-		            btnC.setBackground(Color.RED);
-		            break;	        	
-		        case 4: 
-		            btnD.setBackground(Color.RED);
-		            break;
-        	}
-        	switch(correctAnswer) {
-	        	case 1: 
-	            	btnA.setBackground(Color.GREEN);
-	            	break;
-	        	case 2: 
-	            	btnB.setBackground(Color.GREEN);
-	            	break;	        	
-	            case 3: 
-		            btnC.setBackground(Color.GREEN);
-		            break;	        	
-		        case 4: 
-		            btnD.setBackground(Color.GREEN);
-		            break;
-        	}
+        	JOptionPane.showMessageDialog(quesFrame, "Incorrect\nCorrect answer should have been: " 
+        			+ questions[this.next][correctAnswer],"Incorrect", JOptionPane.WARNING_MESSAGE);
         }
         
-        try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-        if(this.instanceCounter < 5) {
+        if(this.instanceCounter < 3) {
         	quesFrame.dispose();
         	new QuestionFrame();
         } else {
         	//ending screen
-        	System.exit(0);
+        	quesFrame.dispose();
+        	new Score(score);
         }
     }
 
