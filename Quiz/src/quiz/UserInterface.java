@@ -5,6 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Shows the welcome screen.
+ * @author Elisabeth
+ *
+ */
 public class UserInterface implements ActionListener{
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();

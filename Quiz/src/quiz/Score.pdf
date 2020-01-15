@@ -1,24 +1,12 @@
 package quiz;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
-/**
- * Shows the user's score and grades him based on it.
- * Ends program if clicked on a button.
- * @author Elisabeth
- *
- */
-public class Score implements ActionListener{
+public class Score {
 
 	JFrame frame = new JFrame();
 	JLabel text, scoreTxt, advise;
-	JButton btnEnd = new JButton("End");
-	Font f1 = new Font("Arial", Font.PLAIN, 20);
-	Font f2 = new Font("Arial", Font.PLAIN, 15);
 	
 	public Score (int score) {
 		frame.setLayout(new BorderLayout());
@@ -47,19 +35,10 @@ public class Score implements ActionListener{
 			advise = new JLabel("");
 		}
 		
-		text.setFont(f1);
-		scoreTxt.setFont(f2);
-		advise.setFont(f2);
 		frame.add(text, BorderLayout.PAGE_START);
 		frame.add(scoreTxt, BorderLayout.CENTER);
 		frame.add(advise, BorderLayout.PAGE_END);
 		
 		frame.setVisible(true);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		System.exit(0);
 	}
 }

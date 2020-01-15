@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
+/**
+ * Shows the password screen.
+ * @author Elisabeth
+ *
+ */
 public class PWFrame implements ActionListener {
 	
 	//final private String pw = "62210597";
@@ -43,30 +48,39 @@ public class PWFrame implements ActionListener {
     	pwFrame.setVisible(true);
 	}
 	
+	/**
+	 * Checks whether password is correct.
+	 * @return
+	 */
 	public boolean checkPW() {
 		boolean correct = false;
 		
+		//get the user input
 		char[] input = pwField.getPassword();
+		
+		//only if the input is as long as the password it has the chance to be correct
 		if(input.length == pw.length()) {
 			for(int i = 0; i < input.length; i++) {
+				//compare every char 
 				if(input[i] == pw.charAt(i)) {
-					//System.out.println("Password correct, enter program.");
 					correct = true;				
 				} else {
-					//System.out.println("Password incorrect, try again.");
 					correct = false;
+					//as soon as one character is false, the whole password is false
 					break;
 				}
 			} 
 		} else {
 			correct = false;
 		}
+		//return whether correct or not
 		return correct;
 	}
 	
 	public void actionPerformed (ActionEvent ae){
         if(ae.getSource() == this.btnLogIn){
-        	//do something
+        	//if correct go on
+        	//else end program
         	if(checkPW()) {
         		JOptionPane.showMessageDialog(pwFrame, "Password correct");
         		pwFrame.dispose();

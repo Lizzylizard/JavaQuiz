@@ -29,7 +29,7 @@ Which method is the starting point for all Java programs? ä A)start ä X)main ä C
 Which method prints text in a Java program? ä A)System.out(); ä B)System.printText(); ä X)System.out.println(); ä D)out.writeText();
 How are created single-line comments? ä A)** characters at the beginning of the line ä B)*/ characters at the beginning of the line ä X)// characters at the beginning of the line ä D)// characters at the end of the line
 How can you add a Java doc style comment? ä  A)// and */ characters to wrap a comment ä X)/** and */ characters to wrap a comment ä C)// characters in the beginning of the line ä D)/* and */ characters to wrap a comment
-Which variable type would you use for a city name? ä A)int ä X)string ä C)double ä D)boolean
+Which variable type would you use for a city name? ä A)int ä X)String ä C)double ä D)boolean
 Which statement in regard to the char data type is true? ä A)char is used to store numeric values ä X)"K" is a char ä C)"hello" is a char ä D)char determines if a statement is true or false
 What every java program must contain? ä A)only integers ä B)at least two variables ä X)a method called "main" ä D)comments in every class
 An if statement can contain how many else if statements? ä A)none ä B)only two ä C)only more than the used classes ä X)as many as you want
